@@ -8,51 +8,19 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:wght@500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
-  <script>
-    // Apply a saved theme before first paint to avoid a flash
-    try { const t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
-  </script>
   <style>
     :root {
-      --bg: #f7f8fb;
-      --surface: #ffffff;
-      --surface-2: #eef1f7;
-      --text: #141824;
-      --muted: #5b6475;
-      --line: #dde2ec;
-      --accent: #2f6fd6;
-      --accent-soft: rgba(47, 111, 214, 0.10);
-      --hero: radial-gradient(1200px 500px at 15% 0%, #e3ebfb 0%, transparent 60%),
-              radial-gradient(900px 500px at 90% 40%, #def3ee 0%, transparent 60%), #f7f8fb;
-      --nav: rgba(247, 248, 251, 0.85);
-    }
-    :root[data-theme="dark"] {
-      --bg: #0f1422;
-      --surface: #161d2e;
-      --surface-2: #1c2438;
-      --text: #e9ecf3;
-      --muted: #9aa3b6;
-      --line: #263049;
-      --accent: #7aa7f5;
-      --accent-soft: rgba(122, 167, 245, 0.14);
-      --hero: radial-gradient(1200px 500px at 15% 0%, #1a2a52 0%, transparent 60%),
-              radial-gradient(900px 500px at 90% 40%, #123c3e 0%, transparent 60%), #0f1422;
-      --nav: rgba(15, 20, 34, 0.85);
-    }
-    @media (prefers-color-scheme: dark) {
-      :root:not([data-theme="light"]) {
-        --bg: #0f1422;
-        --surface: #161d2e;
-        --surface-2: #1c2438;
-        --text: #e9ecf3;
-        --muted: #9aa3b6;
-        --line: #263049;
-        --accent: #7aa7f5;
-        --accent-soft: rgba(122, 167, 245, 0.14);
-        --hero: radial-gradient(1200px 500px at 15% 0%, #1a2a52 0%, transparent 60%),
-                radial-gradient(900px 500px at 90% 40%, #123c3e 0%, transparent 60%), #0f1422;
-        --nav: rgba(15, 20, 34, 0.85);
-      }
+      color-scheme: dark;
+      --bg: #111113;
+      --surface: #18181b;
+      --surface-2: #202024;
+      --text: #ece8df;
+      --muted: #a39e93;
+      --line: #2c2a26;
+      --accent: #d4b46a;
+      --accent-soft: rgba(212, 180, 106, 0.12);
+      --hero: radial-gradient(1000px 480px at 12% 0%, rgba(212, 180, 106, 0.10) 0%, transparent 60%), #111113;
+      --nav: rgba(17, 17, 19, 0.85);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -79,11 +47,6 @@
     .nav-links { display: flex; align-items: center; gap: 24px; font-size: 0.93rem; font-weight: 500; }
     .nav-links a { color: var(--muted); }
     .nav-links a:hover { color: var(--text); }
-    .theme-btn {
-      display: grid; place-items: center; width: 34px; height: 34px; cursor: pointer;
-      background: none; border: 1px solid var(--line); border-radius: 8px; color: var(--muted);
-    }
-    .theme-btn:hover { color: var(--text); }
 
     /* Hero / About */
     .hero { background: var(--hero); border-bottom: 1px solid var(--line); }
@@ -150,7 +113,7 @@
       background: var(--surface); border: 1px solid var(--line);
       transition: transform .15s, border-color .15s, box-shadow .15s;
     }
-    .card:hover { transform: translateY(-2px); border-color: var(--accent); box-shadow: 0 10px 28px rgba(0,0,0,0.12); }
+    .card:hover { transform: translateY(-2px); border-color: var(--accent); box-shadow: 0 10px 28px rgba(0,0,0,0.35); }
     .card .cat {
       align-self: flex-start; font-size: 0.75rem; font-weight: 600; padding: 3px 10px; border-radius: 999px;
       background: var(--accent-soft); color: var(--accent);
@@ -194,9 +157,6 @@
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
         <a href="#toolkit">Toolkit</a>
-        <button class="theme-btn" id="theme-btn" type="button" aria-label="Toggle dark mode">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
-        </button>
       </div>
     </div>
   </nav>
@@ -374,15 +334,6 @@
       });
     }));
 
-    // Light / dark toggle (defaults to the system setting)
-    document.getElementById('theme-btn').addEventListener('click', () => {
-      const root = document.documentElement;
-      const current = root.dataset.theme ||
-        (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-      const next = current === 'dark' ? 'light' : 'dark';
-      root.dataset.theme = next;
-      try { localStorage.setItem('theme', next); } catch (e) {}
-    });
   </script>
 </body>
 </html>
