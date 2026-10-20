@@ -40,6 +40,10 @@
     header { padding: 96px 0 56px; }
     h1 { font-size: 2rem; font-weight: 600; letter-spacing: -0.02em; }
     .lede { margin-top: 12px; color: var(--muted); max-width: 560px; }
+    .edu { list-style: none; margin-top: 16px; font-size: 0.95rem; }
+    .edu li { display: flex; flex-wrap: wrap; gap: 0 10px; }
+    .edu li span:first-child { font-weight: 500; }
+    .edu li span:last-child { color: var(--muted); }
     .links { margin-top: 20px; display: flex; gap: 20px; font-size: 0.95rem; }
     .links a { color: var(--accent); }
     .links a:hover { text-decoration: underline; }
@@ -88,9 +92,12 @@
     <header>
       <h1>Justin Iler</h1>
       <p class="lede">
-        Economist working at the intersection of applied econometrics, macroeconomics and machine learning.
-        B.A. in Economics from the University of Pennsylvania; graduate work at the Barcelona School of Economics.
+        Economist working across applied econometrics, macroeconomics and machine learning.
       </p>
+      <ul class="edu">
+        <li><span>MSc Economics &amp; Finance</span><span>Barcelona School of Economics</span></li>
+        <li><span>BA Economics</span><span>University of Pennsylvania</span></li>
+      </ul>
       <nav class="links">
         <a href="https://github.com/justin-iler">GitHub</a>
         <a href="https://www.linkedin.com/in/justin-iler/">LinkedIn</a>
