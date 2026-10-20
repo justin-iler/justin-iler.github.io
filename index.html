@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Justin Iler</title>
+  <meta name="description" content="Justin Iler — economics, econometrics and machine learning projects.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fbfbfa;
+      --surface: #ffffff;
+      --text: #1a1a1a;
+      --muted: #6b6b6b;
+      --line: #e7e5e1;
+      --accent: #2f5d8a;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #121212;
+        --surface: #1a1a1a;
+        --text: #ececec;
+        --muted: #9a9a9a;
+        --line: #2a2a2a;
+        --accent: #8cb4dc;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font: 16px/1.6 Inter, system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+
+    header { padding: 96px 0 56px; }
+    h1 { font-size: 2rem; font-weight: 600; letter-spacing: -0.02em; }
+    .lede { margin-top: 12px; color: var(--muted); max-width: 560px; }
+    .links { margin-top: 20px; display: flex; gap: 20px; font-size: 0.95rem; }
+    .links a { color: var(--accent); }
+    .links a:hover { text-decoration: underline; }
+
+    section { padding: 40px 0; border-top: 1px solid var(--line); }
+    h2 {
+      font-size: 0.8rem; font-weight: 500; text-transform: uppercase;
+      letter-spacing: 0.08em; color: var(--muted); margin-bottom: 24px;
+    }
+
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+    .filters button {
+      font: inherit; font-size: 0.85rem; padding: 4px 12px; cursor: pointer;
+      background: none; color: var(--muted);
+      border: 1px solid var(--line); border-radius: 999px;
+    }
+    .filters button[aria-pressed="true"] { color: var(--text); border-color: var(--text); }
+
+    .project {
+      display: block; padding: 20px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .project:last-child { border-bottom: 0; }
+    .project-head { display: flex; justify-content: space-between; gap: 16px; align-items: baseline; }
+    .project h3 { font-size: 1.05rem; font-weight: 600; }
+    .project:hover h3 { color: var(--accent); }
+    .project .arrow { color: var(--muted); transition: transform .15s; }
+    .project:hover .arrow { transform: translateX(3px); color: var(--accent); }
+    .project p { margin-top: 6px; color: var(--muted); font-size: 0.95rem; }
+    .tags { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag {
+      font: 0.75rem "JetBrains Mono", ui-monospace, monospace;
+      padding: 2px 8px; border-radius: 4px;
+      background: var(--surface); border: 1px solid var(--line); color: var(--muted);
+    }
+
+    .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; }
+    .skills h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 6px; }
+    .skills p { color: var(--muted); font-size: 0.9rem; }
+
+    footer { padding: 40px 0 64px; color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--line); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Justin Iler</h1>
+      <p class="lede">
+        Economist working at the intersection of applied econometrics, macroeconomics and machine learning.
+        Graduate work at the Barcelona School of Economics.
+      </p>
+      <nav class="links">
+        <a href="https://github.com/justin-iler">GitHub</a>
+        <a href="https://www.linkedin.com/">LinkedIn</a>
+        <a href="mailto:iler.justin@gmail.com">Email</a>
+      </nav>
+    </header>
+
+    <section>
+      <h2>Projects</h2>
+      <div class="filters" role="group" aria-label="Filter projects">
+        <button aria-pressed="true" data-filter="all">All</button>
+        <button aria-pressed="false" data-filter="macro">Macro</button>
+        <button aria-pressed="false" data-filter="micro">Micro / Causal</button>
+        <button aria-pressed="false" data-filter="ml">Machine Learning</button>
+      </div>
+
+      <div id="projects">
+        <a class="project" data-cat="macro" href="https://github.com/justin-iler/BeyondtheNewKeynesianChannel">
+          <div class="project-head"><h3>Beyond the New Keynesian Channel</h3><span class="arrow">→</span></div>
+          <p>Master's thesis on how fiscal shocks transmit to inflation across the EU.</p>
+          <div class="tags"><span class="tag">Thesis</span><span class="tag">Fiscal policy</span><span class="tag">EU</span></div>
+        </a>
+
+        <a class="project" data-cat="macro ml" href="https://github.com/justin-iler/chile-gdp-nowcast">
+          <div class="project-head"><h3>Chile GDP Nowcast</h3><span class="arrow">→</span></div>
+          <p>Mixed-frequency dynamic factor model for nowcasting and forecasting Chilean quarterly GDP growth.</p>
+          <div class="tags"><span class="tag">DFM</span><span class="tag">Nowcasting</span><span class="tag">Forecasting</span></div>
+        </a>
+
+        <a class="project" data-cat="micro" href="https://github.com/justin-iler/fracking-wage-distribution">
+          <div class="project-head"><h3>Fracking &amp; the Wage Distribution</h3><span class="arrow">→</span></div>
+          <p>Distributional extension of Feyrer, Mansur &amp; Sacerdote (2017): local polynomial, IV quantile and unconditional RIF regressions on U.S. county wages.</p>
+          <div class="tags"><span class="tag">Stata</span><span class="tag">IV-QR</span><span class="tag">RIF</span></div>
+        </a>
+
+        <a class="project" data-cat="ml" href="https://github.com/justin-iler/urban-market-predictive-framework">
+          <div class="project-head"><h3>Urban Market Predictive Framework</h3><span class="arrow">→</span></div>
+          <p>End-to-end R pipeline pricing Boston housing with geospatial alternative data (crime, transit, census), leak-free cross-validated imputation, Elastic Net and Random Forest.</p>
+          <div class="tags"><span class="tag">R</span><span class="tag">Geospatial</span><span class="tag">Elastic Net</span><span class="tag">Random Forest</span></div>
+        </a>
+
+        <a class="project" data-cat="ml" href="https://github.com/justin-iler/ML4Finance-HW1">
+          <div class="project-head"><h3>ML for Finance: Spillovers &amp; Forecasting</h3><span class="arrow">→</span></div>
+          <p>Granger-causality networks and volatility spillovers across 10 ETFs, plus S&amp;P 500 forecasting with neural nets, LSTMs and Gaussian processes.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">LSTM</span><span class="tag">Gaussian Processes</span></div>
+        </a>
+
+        <a class="project" data-cat="tools" href="https://github.com/justin-iler/garmin-run-gsheets-sync">
+          <div class="project-head"><h3>Garmin → Google Sheets Sync</h3><span class="arrow">→</span></div>
+          <p>Daily automation that syncs Garmin Connect running data into Google Sheets.</p>
+          <div class="tags"><span class="tag">Automation</span><span class="tag">APIs</span></div>
+        </a>
+      </div>
+    </section>
+
+    <section>
+      <h2>Toolkit</h2>
+      <div class="skills">
+        <div><h3>Econometrics</h3><p>IV, quantile &amp; RIF regression, nonparametrics, panel data, VARs, dynamic factor models</p></div>
+        <div><h3>Machine Learning</h3><p>Regularized regression, random forests, neural nets, LSTMs, Gaussian processes</p></div>
+        <div><h3>Languages</h3><p>Python, R, Stata, SQL</p></div>
+      </div>
+    </section>
+
+    <footer>© 2026 Justin Iler</footer>
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll('.filters button');
+    const projects = document.querySelectorAll('.project');
+    buttons.forEach(btn => btn.addEventListener('click', () => {
+      buttons.forEach(b => b.setAttribute('aria-pressed', b === btn));
+      const f = btn.dataset.filter;
+      projects.forEach(p => {
+        p.style.display = f === 'all' || p.dataset.cat.split(' ').includes(f) ? '' : 'none';
+      });
+    }));
+  </script>
+</body>
+</html>
